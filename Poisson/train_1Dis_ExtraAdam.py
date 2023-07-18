@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 from utils import trainingData, testingData
 import extragradient
 import os
+import errno
 os.environ['KMP_DUPLICATE_LIB_OK']='True'
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -46,7 +47,7 @@ print(PINNExtraAdam)
 DExtraAdam = networks.Discriminator(2, 25 ,2)
 DExtraAdam.to(device)
 
-max_iter = 8500001
+max_iter = 500001
 dis_lr = 5e-4
 PINN_lr = 5e-5
 betas=(0.3, 0.7)
@@ -56,7 +57,7 @@ PINN_optimizer = extragradient.ExtraAdam(PINNExtraAdam.parameters(), lr=PINN_lr,
 
 n_iteration_t = 0 #keeps track of whether perform extrapolation or call step()
 recordPer = 10000
-savePer = 500000
+savePer = 50000
 graphPer = 0
 # extraAdamInfo = np.empty(((int)(max_iter / recordPer) + 1, 5)) #iterCount, L2 error, PINN loss, loss_pde, loss_bc
 extraAdamInfo = []
@@ -117,8 +118,21 @@ for i in range(max_iter):
                 error_vec, _ = PINNExtraAdam.test(True)
             else:
                 error_vec, _ = PINNExtraAdam.test(False)
-                
+            print(extraAdamInfo)
             extraAdamInfo.append([i, error_vec, loss.item(), g_loss.item(), loss_pde.item()])
         if i % savePer == 0:
-            csv_path = f"Poisson/output/NewExtraAdam/ExtraAdamInfo_iter_{i}.csv"
-            np.savetxt(csv_path, extraAdamInfo)
+            filename = f"Poisson/output/NewExtraAdam/ExtraAdamInfo_iter_{i}.csv"
+            if not os.path.exists(os.path.dirname(filename)):
+                try:
+                    os.makedirs(os.path.dirname(filename))
+                except OSError as exc: # Guard against race condition
+                    if exc.errno != errno.EEXIST:
+                        raise
+            file = open(f"Poisson/output/NewExtraAdam/ExtraAdamInfo_iter_{i}.csv", 'w')
+            # csv_path = f"Poisson/output/NewExtraAdam/ExtraAdamInfo_iter_{i}.csv"
+            np.savetxt(file, extraAdamInfo)
+        if i%500 == 0:
+            print(i)
+        
+
+print("finish")

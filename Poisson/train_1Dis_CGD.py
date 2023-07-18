@@ -5,9 +5,11 @@ import torch.optim as optim
 import matplotlib.pyplot as plt
 from utils import trainingData, testingData
 import os
+import errno
 os.environ['KMP_DUPLICATE_LIB_OK']='True'
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+print(torch.cuda.is_available())
 torch.set_default_tensor_type(torch.DoubleTensor)
 print(device)
 
@@ -69,11 +71,11 @@ import importlib
 importlib.reload(CGDs)
 # BCGDInfo = np.empty((IterErrorCount, 5)) #2 if not using CGD, 5 if using CGD
 
-max_iter = 600001
+max_iter = 60001
 graphPer = 0
 iter_recordBCGD = 200
 
-savePer = 5000
+savePer = 60001
 # Info = np.empty(((int)(max_iter / recordPer), 8)) #[i, error_vec, loss.item(), g_loss.item(), loss_pde.mean().item(), iter_num, iter_num_sum]
 
 # BCGDInfo = np.empty(((int)(max_iter / iter_recordBCGD) + 1, 7)) #[i, error_vec, loss.item(), g_loss.item(), loss_pde.mean().item(), iter_num, iter_num_sum]
@@ -120,4 +122,17 @@ for e in range(max_iter):
      #[i, error_vec, loss.item(), g_loss.item(), loss_pde.mean().item(), iter_num, iter_num_sum]
       BCGDInfo.append([e, error_vec, loss.item(), g_loss.item(), g_pde_loss.mean().item(), iter_num, iter_num_sum])
     if e % savePer == 0:
-        np.savetxt(f"Poisson/output/CGD/CGDInfo_iter_{e}.csv", BCGDInfo)
+      filename = f"Poisson/output/CGD/CGDInfo_iter_{e}.csv"
+      if not os.path.exists(os.path.dirname(filename)):
+        try:
+          os.makedirs(os.path.dirname(filename))
+        except OSError as exc: # Guard against race condition
+          if exc.errno != errno.EEXIST:
+            raise
+      # file = open(f"Poisson/output/CGD/CGDInfo_iter_{e}.csv", 'w')
+      np.savetxt(filename, BCGDInfo)
+    if e%500 == 0:
+      print(e)
+        
+
+print("finish")
