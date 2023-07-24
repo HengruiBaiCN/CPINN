@@ -149,6 +149,9 @@ def PINNplot(PINN, X, U, info):
     plts2[4].set_ylabel("log10 PINN PDE loss")
 
     fig.tight_layout()
+    
+    
+    
 def ACGDPlot(PINN, X, U, info):
     error_vec, u_pred = PINN.test(True)
     s=[1 for i in range(len(X[0]))]

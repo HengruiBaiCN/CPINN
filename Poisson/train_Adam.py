@@ -45,7 +45,7 @@ num_bc = 50
 num_f= 5000
 
 u = lambda xy: np.sin(xy[:, 0]) * np.cos([xy[:, 1]]) # this cannot be a torch function, otherwise the gradient would be recorded
-f = lambda x, y: -2 * np.sin(x) * np.cos(y) #torch->np
+f = lambda x, y: -2 * np.sin(x) * np.cos(y) # torch->np
 all_xy_train, xy_bc, u_bc, xy_inside, f_xy = trainingData(lb, ub, num_bc, num_f, u, f, RNG_key)
 
 u_test_method = lambda x, y: np.sin(x) * np.cos(y) #takes 2 inputs, but should return same values as previous u

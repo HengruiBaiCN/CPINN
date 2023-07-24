@@ -15,7 +15,11 @@ print(device)
 
 if device == 'cuda': 
     print(torch.cuda.get_device_name()) 
-    
+
+
+
+
+# Generate training Data
 lb = np.array([-2, -2])
 ub = np.array([2, 2])
 
@@ -32,6 +36,7 @@ x_test, y_test, xy_test, u_test, f_test, X, Y, U = testingData(lb, ub, u_test_me
 
 
 
+# Generate Neural networks: PINNBCGD is the 
 import networks
 layers = np.array([2,50 ,50, 50,1])
 # printMemory()
@@ -103,13 +108,20 @@ for e in range(max_iter):
 
     g_pde_diff = PINNBCGD.test_PDE()
 
-    # Optimizer step
+    
     loss1 = D_output[:,[0]] * g_pde_diff
     loss2 = D_BCGD(PINNBCGD.x_bc, PINNBCGD.y_bc)[:,[1]] * (PINNBCGD(PINNBCGD.x_bc, PINNBCGD.y_bc) - PINNBCGD.u_bc)
 
     loss = loss1.mean() + loss2.mean()
     # loss = loss1.mean()+loss2.mean()
     optimizer.step(loss)
+    
+    
+    
+    
+    
+    
+    
     # print(e)
     iter_num_sum += optimizer.get_info()["iter_num"]
     if e % iter_recordBCGD == 0:
