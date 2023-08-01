@@ -13,6 +13,8 @@ def printMemory():
   f = r-a  # free inside reserved
   print(f"total: {t}, reserved: {r}, free: {f}")
 
+
+
 # This file generates training data
 def trainingData(lb, ub, num_bc, num_f, u, f, RNG_key = None):
   '''
@@ -61,6 +63,8 @@ def trainingData(lb, ub, num_bc, num_f, u, f, RNG_key = None):
     
   return all_xy_train, bc_x_y_train, bc_u_train, inside_xy, f_x_y
 
+
+
 def testingData(lb, ub, u, f, num):
   device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
@@ -81,6 +85,8 @@ def testingData(lb, ub, u, f, num):
   y_test = torch.from_numpy(xy_test[:,[1]]).to(device)
 #   f_test = f(x_test, y_test)
   return x_test, y_test, xy_test, u_test, f_test, X, Y, U
+
+
 
 def PINNplot(PINN, X, U, info):
     error_vec, u_pred = PINN.test(True)
