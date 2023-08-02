@@ -116,8 +116,17 @@ for e in range(max_iter):
     loss_y = loss1.mean() + loss2.mean()
     
     loss_x = -loss_y
+    
+    pde_loss = PINNGACGD.loss_PDE()
+    bc_loss = PINNGACGD.loss_BC()
+    pinn_loss = pde_loss.mean() + bc_loss.mean()
+    
+    
     optimizer.step(loss_x, loss_y, 0) #breaks at first step() call
     # print(e) 
+    if e%100 == 0:
+      print(f'{e}/{max_iter} PDE Loss: {pde_loss.item():.5f}, BC Loss: {bc_loss.item():.5f}, \
+                  mse loss: {pinn_loss.item():5f}, nn loss: {loss_y.item():5f}')
 
 
 
@@ -128,25 +137,25 @@ for e in range(max_iter):
       g_loss, loss_bc, g_pde_loss = PINNGACGD.loss()
       error_vec, u_pred = PINNGACGD.test(graphPer != 0 and e % graphPer == 0)
       
-      ACGDInfo = ACGDInfo.append({
-        "iter": e,
-        "L2 error": error_vec,
-        "PINN loss": g_loss.item(),
-        "PINN BC loss": loss_bc.item(),
-        "PINN PDE loss": g_pde_loss.item(),
-        "CPINN loss": loss_y.item(),
-        "CPINN PDE loss": loss1.mean().item(),
-        "CPINN BC loss": loss2.mean().item(),
-        "iter_num_sum" : iter_num_sum
-        }, ignore_index = True)
+    #   ACGDInfo = ACGDInfo.concat({
+    #     "iter": e,
+    #     "L2 error": error_vec,
+    #     "PINN loss": g_loss.item(),
+    #     "PINN BC loss": loss_bc.item(),
+    #     "PINN PDE loss": g_pde_loss.item(),
+    #     "CPINN loss": loss_y.item(),
+    #     "CPINN PDE loss": loss1.mean().item(),
+    #     "CPINN BC loss": loss2.mean().item(),
+    #     "iter_num_sum" : iter_num_sum
+    #     }, ignore_index = True)
 
-    if e % savePer == 0: 
-        ACGDInfo.to_csv(f"{path}/history/ACGDInfo_{e}.csv")
-        np.savetxt(f"{path}/prediction/PINNPrediction_iter_{e}.csv", u_pred)
-        torch.save({
-            "PINN_state_dict": PINNGACGD.state_dict(),
-            "Discriminator_state_dict": D_GACGD.state_dict(),
-            "GACGD_optimizer_state_dict" : optimizer.state_dict(),
-        }, f"{path}/models/GACGD_models_iter_{e}.pt")
+    # if e % savePer == 0: 
+    #     ACGDInfo.to_csv(f"{path}/history/ACGDInfo_{e}.csv")
+    #     np.savetxt(f"{path}/prediction/PINNPrediction_iter_{e}.csv", u_pred)
+    #     torch.save({
+    #         "PINN_state_dict": PINNGACGD.state_dict(),
+    #         "Discriminator_state_dict": D_GACGD.state_dict(),
+    #         "GACGD_optimizer_state_dict" : optimizer.state_dict(),
+    #     }, f"{path}/models/GACGD_models_iter_{e}.pt")
 
 print(f"Time: {time.time() - start_time}")
