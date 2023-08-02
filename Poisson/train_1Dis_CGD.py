@@ -114,6 +114,12 @@ for e in range(max_iter):
 
     loss = loss1.mean() + loss2.mean()
     # loss = loss1.mean()+loss2.mean()
+    
+    pde_loss = PINNBCGD.loss_PDE()
+    bc_loss = PINNBCGD.loss_BC()
+    pinn_loss = pde_loss.mean() + bc_loss.mean()
+    
+    
     optimizer.step(loss)
     
     
@@ -144,7 +150,8 @@ for e in range(max_iter):
       # file = open(f"Poisson/output/CGD/CGDInfo_iter_{e}.csv", 'w')
       np.savetxt(filename, BCGDInfo)
     if e%500 == 0:
-      print(e)
+      print(f'{e}/{max_iter} PDE Loss: {pde_loss.item():.5f}, BC Loss: {bc_loss.item():.5f}, \
+                  mse loss: {pinn_loss.item():5f}, nn loss: {loss.item():5f}')
         
 
 print("finish")

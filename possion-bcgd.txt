@@ -1,0 +1,169 @@
+(honor) PS C:\Users\hengr\Programs\Projects\CPINN\Poisson> python .\train_1Dis_CGD.py
+True
+cuda
+PINN_Poisson_2d(
+  (activation): Tanh()
+  (loss_function): MSELoss()
+  (linears): ModuleList(
+    (0): Linear(in_features=2, out_features=50, bias=True)
+    (1-2): 2 x Linear(in_features=50, out_features=50, bias=True)
+    (3): Linear(in_features=50, out_features=1, bias=True)
+  )
+)
+Discriminator(
+  (map): Sequential(
+    (0): Linear(in_features=2, out_features=50, bias=True)
+    (1): ReLU()
+    (2): Linear(in_features=50, out_features=50, bias=True)
+    (3): ReLU()
+    (4): Linear(in_features=50, out_features=50, bias=True)
+    (5): ReLU()
+    (6): Linear(in_features=50, out_features=50, bias=True)
+    (7): ReLU()
+    (8): Linear(in_features=50, out_features=2, bias=True)
+  )
+)
+PINN_Poisson_2d(
+  (activation): Tanh()
+  (loss_function): MSELoss()
+  (linears): ModuleList(
+    (0): Linear(in_features=2, out_features=50, bias=True)
+    (1-2): 2 x Linear(in_features=50, out_features=50, bias=True)
+    (3): Linear(in_features=50, out_features=1, bias=True)
+  )
+)
+Discriminator(
+  (map): Sequential(
+    (0): Linear(in_features=2, out_features=50, bias=True)
+    (1): ReLU()
+    (2): Linear(in_features=50, out_features=50, bias=True)
+    (3): ReLU()
+    (4): Linear(in_features=50, out_features=50, bias=True)
+    (5): ReLU()
+    (6): Linear(in_features=50, out_features=50, bias=True)
+    (7): ReLU()
+    (8): Linear(in_features=50, out_features=2, bias=True)
+  )
+)
+0/60001 PDE Loss: 1.04261, BC Loss: 0.53053,                   mse loss: 1.573135, nn loss: -0.009515
+500/60001 PDE Loss: 1.65717, BC Loss: 0.43317,                   mse loss: 2.090342, nn loss: -0.022840
+1000/60001 PDE Loss: 0.28337, BC Loss: 0.06133,                   mse loss: 0.344706, nn loss: -0.009817
+1500/60001 PDE Loss: 0.06233, BC Loss: 0.03120,                   mse loss: 0.093533, nn loss: 0.005829
+2000/60001 PDE Loss: 0.04429, BC Loss: 0.01660,                   mse loss: 0.060893, nn loss: 0.007776
+2500/60001 PDE Loss: 0.02419, BC Loss: 0.01685,                   mse loss: 0.041036, nn loss: 0.004067
+3000/60001 PDE Loss: 0.03068, BC Loss: 0.00621,                   mse loss: 0.036891, nn loss: 0.007381
+3500/60001 PDE Loss: 0.02915, BC Loss: 0.00798,                   mse loss: 0.037136, nn loss: 0.009555
+4000/60001 PDE Loss: 0.02302, BC Loss: 0.01073,                   mse loss: 0.033750, nn loss: 0.012295
+4500/60001 PDE Loss: 0.01998, BC Loss: 0.00697,                   mse loss: 0.026957, nn loss: 0.017108
+5000/60001 PDE Loss: 0.01530, BC Loss: 0.00610,                   mse loss: 0.021397, nn loss: 0.022958
+5500/60001 PDE Loss: 0.01040, BC Loss: 0.00520,                   mse loss: 0.015600, nn loss: 0.029842
+6000/60001 PDE Loss: 0.06994, BC Loss: 0.00633,                   mse loss: 0.076274, nn loss: -0.022865
+6500/60001 PDE Loss: 0.06806, BC Loss: 0.02282,                   mse loss: 0.090874, nn loss: 0.019901
+7000/60001 PDE Loss: 0.02072, BC Loss: 0.01133,                   mse loss: 0.032052, nn loss: 0.001799
+7500/60001 PDE Loss: 0.00649, BC Loss: 0.00561,                   mse loss: 0.012097, nn loss: 0.004516
+8000/60001 PDE Loss: 0.00762, BC Loss: 0.00546,                   mse loss: 0.013084, nn loss: 0.004911
+8500/60001 PDE Loss: 0.00579, BC Loss: 0.00311,                   mse loss: 0.008902, nn loss: 0.004741
+9000/60001 PDE Loss: 0.00730, BC Loss: 0.00285,                   mse loss: 0.010147, nn loss: 0.004028
+9500/60001 PDE Loss: 0.00428, BC Loss: 0.00302,                   mse loss: 0.007292, nn loss: 0.003529
+10000/60001 PDE Loss: 0.00791, BC Loss: 0.00429,                   mse loss: 0.012203, nn loss: 0.004106
+10500/60001 PDE Loss: 0.00472, BC Loss: 0.00335,                   mse loss: 0.008074, nn loss: 0.004204
+11000/60001 PDE Loss: 0.00386, BC Loss: 0.00269,                   mse loss: 0.006549, nn loss: 0.004780
+11500/60001 PDE Loss: 0.00198, BC Loss: 0.00229,                   mse loss: 0.004271, nn loss: 0.005321
+12000/60001 PDE Loss: 0.00167, BC Loss: 0.00169,                   mse loss: 0.003355, nn loss: 0.004666
+12500/60001 PDE Loss: 0.00195, BC Loss: 0.00119,                   mse loss: 0.003143, nn loss: 0.004173
+13000/60001 PDE Loss: 0.00220, BC Loss: 0.00111,                   mse loss: 0.003310, nn loss: 0.003968
+13500/60001 PDE Loss: 0.00232, BC Loss: 0.00088,                   mse loss: 0.003194, nn loss: 0.003583
+14000/60001 PDE Loss: 0.00217, BC Loss: 0.00051,                   mse loss: 0.002686, nn loss: 0.003093
+14500/60001 PDE Loss: 0.00196, BC Loss: 0.00021,                   mse loss: 0.002172, nn loss: 0.002752
+15000/60001 PDE Loss: 0.00168, BC Loss: 0.00019,                   mse loss: 0.001872, nn loss: 0.002117
+15500/60001 PDE Loss: 0.00180, BC Loss: 0.00019,                   mse loss: 0.001985, nn loss: 0.001746
+16000/60001 PDE Loss: 0.00172, BC Loss: 0.00021,                   mse loss: 0.001930, nn loss: 0.001627
+16500/60001 PDE Loss: 0.00150, BC Loss: 0.00029,                   mse loss: 0.001787, nn loss: 0.001521
+17000/60001 PDE Loss: 0.00127, BC Loss: 0.00029,                   mse loss: 0.001562, nn loss: 0.001280
+17500/60001 PDE Loss: 0.00122, BC Loss: 0.00025,                   mse loss: 0.001470, nn loss: 0.000968
+18000/60001 PDE Loss: 0.00103, BC Loss: 0.00022,                   mse loss: 0.001253, nn loss: 0.000819
+18500/60001 PDE Loss: 0.00089, BC Loss: 0.00017,                   mse loss: 0.001056, nn loss: 0.000734
+19000/60001 PDE Loss: 0.00085, BC Loss: 0.00014,                   mse loss: 0.000990, nn loss: 0.000544
+19500/60001 PDE Loss: 0.00087, BC Loss: 0.00015,                   mse loss: 0.001019, nn loss: 0.000466
+20000/60001 PDE Loss: 0.00086, BC Loss: 0.00018,                   mse loss: 0.001043, nn loss: 0.000445
+20500/60001 PDE Loss: 0.00097, BC Loss: 0.00023,                   mse loss: 0.001206, nn loss: 0.000375
+21000/60001 PDE Loss: 0.00121, BC Loss: 0.00031,                   mse loss: 0.001522, nn loss: 0.000393
+21500/60001 PDE Loss: 0.00134, BC Loss: 0.00030,                   mse loss: 0.001637, nn loss: 0.000574
+22000/60001 PDE Loss: 0.00120, BC Loss: 0.00020,                   mse loss: 0.001403, nn loss: 0.000672
+22500/60001 PDE Loss: 0.00110, BC Loss: 0.00017,                   mse loss: 0.001270, nn loss: 0.000684
+23000/60001 PDE Loss: 0.00096, BC Loss: 0.00016,                   mse loss: 0.001121, nn loss: 0.000617
+23500/60001 PDE Loss: 0.00087, BC Loss: 0.00023,                   mse loss: 0.001101, nn loss: 0.000582
+24000/60001 PDE Loss: 0.00079, BC Loss: 0.00026,                   mse loss: 0.001056, nn loss: 0.000635
+24500/60001 PDE Loss: 0.00077, BC Loss: 0.00028,                   mse loss: 0.001056, nn loss: 0.000736
+25000/60001 PDE Loss: 0.00073, BC Loss: 0.00025,                   mse loss: 0.000980, nn loss: 0.000814
+25500/60001 PDE Loss: 0.00069, BC Loss: 0.00019,                   mse loss: 0.000875, nn loss: 0.000862
+26000/60001 PDE Loss: 0.00064, BC Loss: 0.00013,                   mse loss: 0.000775, nn loss: 0.000884
+26500/60001 PDE Loss: 0.00059, BC Loss: 0.00010,                   mse loss: 0.000688, nn loss: 0.000897
+27000/60001 PDE Loss: 0.00053, BC Loss: 0.00008,                   mse loss: 0.000616, nn loss: 0.000901
+27500/60001 PDE Loss: 0.00048, BC Loss: 0.00007,                   mse loss: 0.000555, nn loss: 0.000901
+28000/60001 PDE Loss: 0.00043, BC Loss: 0.00007,                   mse loss: 0.000504, nn loss: 0.000901
+28500/60001 PDE Loss: 0.00039, BC Loss: 0.00007,                   mse loss: 0.000453, nn loss: 0.000904
+29000/60001 PDE Loss: 0.00035, BC Loss: 0.00007,                   mse loss: 0.000419, nn loss: 0.000895
+29500/60001 PDE Loss: 0.00033, BC Loss: 0.00007,                   mse loss: 0.000393, nn loss: 0.000878
+30000/60001 PDE Loss: 0.00030, BC Loss: 0.00006,                   mse loss: 0.000362, nn loss: 0.000859
+30500/60001 PDE Loss: 0.00028, BC Loss: 0.00006,                   mse loss: 0.000341, nn loss: 0.000846
+31000/60001 PDE Loss: 0.00027, BC Loss: 0.00006,                   mse loss: 0.000324, nn loss: 0.000834
+31500/60001 PDE Loss: 0.00025, BC Loss: 0.00005,                   mse loss: 0.000307, nn loss: 0.000819
+32000/60001 PDE Loss: 0.00024, BC Loss: 0.00005,                   mse loss: 0.000287, nn loss: 0.000801
+32500/60001 PDE Loss: 0.00023, BC Loss: 0.00005,                   mse loss: 0.000271, nn loss: 0.000781
+33000/60001 PDE Loss: 0.00022, BC Loss: 0.00004,                   mse loss: 0.000259, nn loss: 0.000759
+33500/60001 PDE Loss: 0.00021, BC Loss: 0.00004,                   mse loss: 0.000247, nn loss: 0.000736
+34000/60001 PDE Loss: 0.00020, BC Loss: 0.00004,                   mse loss: 0.000235, nn loss: 0.000715
+34500/60001 PDE Loss: 0.00019, BC Loss: 0.00004,                   mse loss: 0.000226, nn loss: 0.000697
+35000/60001 PDE Loss: 0.00019, BC Loss: 0.00003,                   mse loss: 0.000221, nn loss: 0.000682
+35500/60001 PDE Loss: 0.00018, BC Loss: 0.00003,                   mse loss: 0.000215, nn loss: 0.000668
+36000/60001 PDE Loss: 0.00018, BC Loss: 0.00003,                   mse loss: 0.000210, nn loss: 0.000657
+36500/60001 PDE Loss: 0.00017, BC Loss: 0.00003,                   mse loss: 0.000205, nn loss: 0.000647
+37000/60001 PDE Loss: 0.00017, BC Loss: 0.00003,                   mse loss: 0.000199, nn loss: 0.000638
+37500/60001 PDE Loss: 0.00016, BC Loss: 0.00003,                   mse loss: 0.000194, nn loss: 0.000630
+38000/60001 PDE Loss: 0.00016, BC Loss: 0.00003,                   mse loss: 0.000189, nn loss: 0.000622
+38500/60001 PDE Loss: 0.00015, BC Loss: 0.00003,                   mse loss: 0.000185, nn loss: 0.000612
+39000/60001 PDE Loss: 0.00015, BC Loss: 0.00003,                   mse loss: 0.000181, nn loss: 0.000602
+39500/60001 PDE Loss: 0.00015, BC Loss: 0.00003,                   mse loss: 0.000177, nn loss: 0.000590
+40000/60001 PDE Loss: 0.00015, BC Loss: 0.00003,                   mse loss: 0.000175, nn loss: 0.000578
+40500/60001 PDE Loss: 0.00015, BC Loss: 0.00003,                   mse loss: 0.000174, nn loss: 0.000565
+41000/60001 PDE Loss: 0.00015, BC Loss: 0.00003,                   mse loss: 0.000174, nn loss: 0.000552
+41500/60001 PDE Loss: 0.00015, BC Loss: 0.00003,                   mse loss: 0.000173, nn loss: 0.000540
+42000/60001 PDE Loss: 0.00015, BC Loss: 0.00003,                   mse loss: 0.000173, nn loss: 0.000528
+42500/60001 PDE Loss: 0.00015, BC Loss: 0.00002,                   mse loss: 0.000174, nn loss: 0.000516
+43000/60001 PDE Loss: 0.00015, BC Loss: 0.00002,                   mse loss: 0.000176, nn loss: 0.000504
+43500/60001 PDE Loss: 0.00016, BC Loss: 0.00002,                   mse loss: 0.000178, nn loss: 0.000494
+44000/60001 PDE Loss: 0.00016, BC Loss: 0.00002,                   mse loss: 0.000180, nn loss: 0.000486
+44500/60001 PDE Loss: 0.00016, BC Loss: 0.00002,                   mse loss: 0.000181, nn loss: 0.000478
+45000/60001 PDE Loss: 0.00016, BC Loss: 0.00002,                   mse loss: 0.000183, nn loss: 0.000474
+45500/60001 PDE Loss: 0.00016, BC Loss: 0.00002,                   mse loss: 0.000183, nn loss: 0.000472
+46000/60001 PDE Loss: 0.00016, BC Loss: 0.00002,                   mse loss: 0.000184, nn loss: 0.000470
+46500/60001 PDE Loss: 0.00016, BC Loss: 0.00002,                   mse loss: 0.000184, nn loss: 0.000471
+47000/60001 PDE Loss: 0.00016, BC Loss: 0.00002,                   mse loss: 0.000184, nn loss: 0.000473
+47500/60001 PDE Loss: 0.00016, BC Loss: 0.00002,                   mse loss: 0.000182, nn loss: 0.000478
+48000/60001 PDE Loss: 0.00016, BC Loss: 0.00002,                   mse loss: 0.000180, nn loss: 0.000483
+48500/60001 PDE Loss: 0.00016, BC Loss: 0.00002,                   mse loss: 0.000178, nn loss: 0.000486
+49000/60001 PDE Loss: 0.00015, BC Loss: 0.00002,                   mse loss: 0.000172, nn loss: 0.000488
+49500/60001 PDE Loss: 0.00015, BC Loss: 0.00002,                   mse loss: 0.000168, nn loss: 0.000488
+50000/60001 PDE Loss: 0.00014, BC Loss: 0.00002,                   mse loss: 0.000162, nn loss: 0.000485
+50500/60001 PDE Loss: 0.00014, BC Loss: 0.00002,                   mse loss: 0.000158, nn loss: 0.000483
+51000/60001 PDE Loss: 0.00013, BC Loss: 0.00002,                   mse loss: 0.000154, nn loss: 0.000479
+51500/60001 PDE Loss: 0.00013, BC Loss: 0.00002,                   mse loss: 0.000150, nn loss: 0.000476
+52000/60001 PDE Loss: 0.00013, BC Loss: 0.00002,                   mse loss: 0.000147, nn loss: 0.000474
+52500/60001 PDE Loss: 0.00012, BC Loss: 0.00002,                   mse loss: 0.000142, nn loss: 0.000475
+53000/60001 PDE Loss: 0.00012, BC Loss: 0.00002,                   mse loss: 0.000137, nn loss: 0.000477
+53500/60001 PDE Loss: 0.00011, BC Loss: 0.00002,                   mse loss: 0.000130, nn loss: 0.000479
+54000/60001 PDE Loss: 0.00011, BC Loss: 0.00001,                   mse loss: 0.000122, nn loss: 0.000477
+54500/60001 PDE Loss: 0.00010, BC Loss: 0.00001,                   mse loss: 0.000114, nn loss: 0.000475
+55000/60001 PDE Loss: 0.00009, BC Loss: 0.00001,                   mse loss: 0.000106, nn loss: 0.000471
+55500/60001 PDE Loss: 0.00009, BC Loss: 0.00001,                   mse loss: 0.000099, nn loss: 0.000465
+56000/60001 PDE Loss: 0.00008, BC Loss: 0.00001,                   mse loss: 0.000093, nn loss: 0.000457
+56500/60001 PDE Loss: 0.00008, BC Loss: 0.00001,                   mse loss: 0.000089, nn loss: 0.000448
+57000/60001 PDE Loss: 0.00008, BC Loss: 0.00001,                   mse loss: 0.000086, nn loss: 0.000439
+57500/60001 PDE Loss: 0.00008, BC Loss: 0.00001,                   mse loss: 0.000083, nn loss: 0.000431
+58000/60001 PDE Loss: 0.00008, BC Loss: 0.00001,                   mse loss: 0.000082, nn loss: 0.000423
+58500/60001 PDE Loss: 0.00008, BC Loss: 0.00000,                   mse loss: 0.000080, nn loss: 0.000416
+59000/60001 PDE Loss: 0.00007, BC Loss: 0.00000,                   mse loss: 0.000077, nn loss: 0.000408
+59500/60001 PDE Loss: 0.00007, BC Loss: 0.00000,                   mse loss: 0.000073, nn loss: 0.000400
+60000/60001 PDE Loss: 0.00007, BC Loss: 0.00000,                   mse loss: 0.000071, nn loss: 0.000391
+finish

@@ -26,6 +26,10 @@ def trainNonCGD(PINN, optimizer, max_iter, recordPer = 500, graphPer = 0, path =
             loss, loss_bc, loss_pde = PINN.loss(xy_bc[:,[0]], xy_bc[:,[1]], u_bc, xy_inside[:,[0]], xy_inside[:,[1]], f_xy)
         else:
             loss, loss_bc, loss_pde = PINN.loss()
+        
+        pde_loss = PINN.loss_PDE()
+        bc_loss = PINN.loss_BC()
+        pinn_loss = pde_loss.mean() + bc_loss.mean()
 
         optimizer.zero_grad()
 
@@ -49,6 +53,9 @@ def trainNonCGD(PINN, optimizer, max_iter, recordPer = 500, graphPer = 0, path =
             
                 np.savetxt(f"{path}/history/Info_iter_{i}.csv", info)
                 np.savetxt(f"{path}/prediction/PINNPrediction_iter_{i}.csv", u_pred)
+        if i%500 == 0:
+            print(f'{i}/{max_iter} PDE Loss: {pde_loss.item():.5f}, BC Loss: {bc_loss.item():.5f}, \
+                  mse loss: {pinn_loss.item():5f}, nn loss: {loss.item():5f}')
             
     print("Training Time: ",time.time() - start_time)
     
