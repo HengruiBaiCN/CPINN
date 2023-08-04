@@ -1,9 +1,0 @@
-C:\Users\hengr\miniconda3\envs\honor\lib\site-packages\CGDs\gmres_torch.py:124: UserWarning: torch.triangular_solve is deprecated in favor of torch.linalg.solve_triangularand will be removed in a future PyTorch release.
-torch.linalg.solve_triangular has its arguments reversed and does not return a copy of one of the inputs.
-X = torch.triangular_solve(B, A).solution
-should be replaced with
-X = torch.linalg.solve_triangular(A, B). (Triggered internally at C:\cb\pytorch_1000000000000\work\aten\src\ATen\native\BatchLinearAlgebra.cpp:2197.)
-  y, _ = torch.triangular_solve(beta[0:j + 1].unsqueeze(-1), H[0:j + 1, 0:j + 1])  # j x j
-0/34001 PDE Loss: 1.12670, BC Loss: 0.42516,                   mse loss: 1.551868, nn loss: -0.005094
-500/34001 PDE Loss: 0.00003, BC Loss: 0.00000,                   mse loss: 0.000034, nn loss: 0.000141
-1000/34001 PDE Loss: 0.00000, BC Loss: 0.00000,                   mse loss: 0.000000, nn loss: 0.000009

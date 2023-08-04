@@ -124,9 +124,9 @@ for e in range(max_iter):
     
     optimizer.step(loss_x, loss_y, 0) #breaks at first step() call
     # print(e) 
-    if e%100 == 0:
-      print(f'{e}/{max_iter} PDE Loss: {pde_loss.item():.5f}, BC Loss: {bc_loss.item():.5f}, \
-                  mse loss: {pinn_loss.item():5f}, nn loss: {loss_y.item():5f}')
+    if e%10 == 0:
+      print(f'{e}/{max_iter} PDE Loss: {pde_loss.item():}, BC Loss: {bc_loss.item():}, \
+                  mse loss: {pinn_loss.item():}, nn loss: {loss_y.item():}')
 
 
 
